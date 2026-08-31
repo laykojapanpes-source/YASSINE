@@ -1,159 +1,118 @@
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ILYS SHOP</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>ZOUINE SHOP — Preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Orbitron:wght@600;800;900&display=swap" rel="stylesheet">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@500;700;800&display=swap');
-*{box-sizing:border-box}body{margin:0;background:#f5f8ff;color:#14213d;font-family:Cairo,Arial,sans-serif}
-header{position:sticky;top:0;z-index:5;background:#fff;border-bottom:1px solid #e5eaf3;padding:14px 5%;display:flex;gap:15px;align-items:center}
-.logo{font-size:25px;font-weight:800}.logo span{color:#1769e8}
-.search{flex:1;max-width:650px;margin:auto}.search input{width:100%;padding:13px 18px;border:1px solid #e2e8f0;border-radius:15px;background:#f7f9fd}
-.icon{background:#edf4ff;color:#1769e8;border:0;border-radius:13px;padding:12px 15px}
-main{max-width:1150px;margin:auto;padding:25px 18px 90px}
-.hero{background:linear-gradient(135deg,#0d59d7,#3486f5);color:white;border-radius:28px;padding:45px;min-height:290px;display:flex;align-items:center;box-shadow:0 20px 45px #1769e826}
-.hero h1{font-size:48px;line-height:1.3;margin:8px 0}.hero p{opacity:.9}.btn{border:0;border-radius:12px;padding:12px 20px;background:#1769e8;color:white;font-weight:700}.white{background:white;color:#1769e8}
-section{margin-top:35px}.head{display:flex;justify-content:space-between;align-items:center}.head h2{margin:0}
-.cats,.products{display:grid;gap:16px}.cats{grid-template-columns:repeat(2,1fr)}.products{grid-template-columns:repeat(4,1fr)}
-.cat,.card{background:white;border:1px solid #e4e9f2;border-radius:20px;overflow:hidden}.cat{padding:25px;display:flex;justify-content:space-between;align-items:center}.cat .ico{width:55px;height:55px;border-radius:17px;background:#eaf2ff;color:#1769e8;display:grid;place-items:center;font-size:25px}
-.pic{height:170px;background:#eaf2ff;display:grid;place-items:center;color:#1769e8;font-size:42px}.pic img{width:100%;height:100%;object-fit:cover}.body{padding:14px}.price{color:#1769e8;font-size:19px;font-weight:800}.muted{color:#77849a;font-size:13px}.badge{font-size:11px;background:#eef5ff;color:#1769e8;padding:5px 8px;border-radius:8px}
-.bottom{position:fixed;bottom:0;left:0;right:0;background:white;border-top:1px solid #e5eaf3;display:flex;justify-content:center;z-index:10}.bottom button{flex:1;max-width:150px;padding:11px;background:white;border:0;color:#718096}.bottom b{display:block;color:#1769e8}
-.modal{display:none;position:fixed;inset:0;background:#08152d88;z-index:20;align-items:center;justify-content:center;padding:15px}.modal.on{display:flex}.box{background:white;border-radius:22px;padding:22px;width:min(650px,100%);max-height:90vh;overflow:auto}.box input,.box textarea,.box select{width:100%;padding:11px;margin:5px 0 12px;border:1px solid #dfe6f0;border-radius:11px}.close{float:left;border:0;background:#edf2f8;border-radius:9px;padding:8px}
-.admin{display:none}.admin.on{display:block}.adminGrid{display:grid;grid-template-columns:220px 1fr;gap:15px}.side,.panel{background:white;border:1px solid #e4e9f2;border-radius:20px;padding:18px}.side button{width:100%;text-align:right;border:0;background:white;padding:12px;border-radius:10px}.side button:hover{background:#edf4ff;color:#1769e8}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.stat{background:#f2f6fc;padding:15px;border-radius:14px}.stat strong{display:block;color:#1769e8;font-size:24px}
-@media(max-width:800px){.products{grid-template-columns:repeat(2,1fr)}.adminGrid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.hero{padding:28px}.hero h1{font-size:34px}}
-@media(max-width:520px){header .search{display:none}.cats{gap:9px}.cat{padding:15px}.pic{height:140px}.hero{border-radius:22px}}
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#050812;--gold:#ffb21c;--blue:#48d9ff;--muted:#b5bdca}
+html,body{height:100%;overflow:hidden;background:var(--bg);color:white;font-family:Cairo,Arial}
+.site{height:100dvh;position:relative;overflow:hidden}
+.world{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:1s}
+.world.active{opacity:1}
+.freefire{background-image:url("https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=2400&q=90")}
+.pes{background-image:url("https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=2400&q=90")}
+.world:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(2,5,13,.95),rgba(2,5,13,.55) 45%,rgba(2,5,13,.2)),linear-gradient(0deg,rgba(2,5,13,.7),transparent 55%)}
+.nav{position:absolute;z-index:5;top:0;left:0;right:0;height:82px;padding:0 6%;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #ffffff20;background:#00000025;backdrop-filter:blur(8px)}
+.logo{font:800 22px Orbitron;color:#fff;text-decoration:none;direction:ltr;animation:float 4s ease-in-out infinite;filter:drop-shadow(0 0 12px #ffb21c35)}
+.logo span{color:var(--gold)}
+.navlinks{display:flex;gap:25px;align-items:center}
+.navlinks button{background:none;border:0;color:#c5cbd5;padding:10px 5px;cursor:pointer;font-family:Cairo}
+.navlinks button.active{color:white}
+.navlinks button.active:after{content:"";display:block;height:2px;background:var(--gold);box-shadow:0 0 12px var(--gold)}
+.admin{border:1px solid #ffffff25!important;border-radius:30px;background:#ffffff0b!important;padding:8px 16px!important}
+.hero{position:absolute;z-index:3;left:7%;top:50%;transform:translateY(-50%);direction:rtl;text-align:left;width:min(650px,75vw)}
+.kicker{font-size:13px;color:var(--gold);letter-spacing:4px;font-weight:800;margin-bottom:18px}
+.title{font:900 clamp(55px,8vw,110px)/.9 Orbitron;letter-spacing:-5px;direction:ltr}
+.title .accent{color:var(--gold);text-shadow:0 0 35px #ffb21c45}
+.rule{height:4px;width:100px;background:var(--gold);box-shadow:0 0 18px var(--gold);margin:27px 0 18px}
+.desc{font-size:15px;line-height:2;color:#e4e7ec;max-width:570px}
+.actions{display:flex;gap:12px;margin-top:25px}
+.btn{height:50px;padding:0 25px;border-radius:30px;border:1px solid #ffffff30;background:#ffffff10;color:white;font-weight:800;cursor:pointer}
+.primary{background:white;color:#07101e}
+.side{position:absolute;z-index:4;top:52%;width:225px;height:310px;border:1px solid #ffffff30;border-radius:28px;overflow:hidden;box-shadow:0 25px 70px #0008}
+.side img{width:100%;height:100%;object-fit:cover;opacity:.7}
+.side.left{left:-95px}.side.right{right:-95px}
+.side span{position:absolute;top:50%;font:800 17px Orbitron;letter-spacing:3px}.side.left span{left:125px}.side.right span{right:125px}
+.stats{position:absolute;z-index:4;left:7%;bottom:28px;display:flex;gap:30px;direction:ltr}
+.stat b{display:block;font:800 15px Orbitron}.stat small{color:#ffffff90;font-size:9px;letter-spacing:1px}
+.owner{position:absolute;z-index:4;right:5%;bottom:28px;text-align:right}.owner b{font:800 13px Orbitron}.owner small{display:block;color:#ffffff90;font-size:9px}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px) scale(1.02)}}
+@media(max-width:700px){
+.nav{height:70px;padding:0 20px}.logo{font-size:17px}.navlinks{gap:8px}.navlinks button{font-size:10px}
+.hero{left:22px;width:calc(100% - 44px);top:45%}.title{font-size:47px}.desc{font-size:12px}.kicker{font-size:9px}
+.side{width:120px;height:165px;top:76%}.side.left{left:-65px}.side.right{right:-65px}.side span{font-size:9px}.side.left span{left:70px}.side.right span{right:70px}
+.stats{left:22px;bottom:15px;gap:15px}.stat b{font-size:10px}.owner{right:20px;bottom:15px}.owner b{font-size:9px}.owner small{font-size:7px}
+}
 </style>
 </head>
 <body>
-<header>
-<div class="logo">ILYS <span>SHOP</span></div>
-<div class="search"><input id="q" oninput="render()" placeholder="ابحث عن منتج أو حساب..."></div>
-<button class="icon" onclick="cart()">🛒</button>
-<button class="icon" onclick="adminLogin()">♙</button>
+<div class="site">
+<section class="world freefire active" id="freefire"></section>
+<section class="world pes" id="pes"></section>
+
+<header class="nav">
+<a class="logo" href="#">ZOUINE<span>SHOP</span></a>
+<nav class="navlinks">
+<button class="active" onclick="switchWorld('freefire',this)">FREE FIRE</button>
+<button onclick="switchWorld('pes',this)">PES</button>
+<button onclick="previewStore()">STORE</button>
+<button class="admin" onclick="alert('Admin Panel — Preview')">ADMIN</button>
+</nav>
 </header>
 
-<main id="store">
-<div class="hero"><div><small>ILYS SHOP • 2026</small><h1>العب أكثر،<br>واختر بذكاء.</h1><p>حسابات ألعاب مختارة بعناية وتجربة شراء بسيطة وسريعة.</p><button class="btn white" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">اكتشف الحسابات ←</button></div></div>
-
-<section><div class="head"><h2>تسوق حسب القسم</h2><button class="icon" onclick="filter('all')">الكل</button></div>
-<div class="cats">
-<div class="cat" onclick="filter('PES')"><div><h3>حسابات PES</h3><span class="muted" id="pc"></span></div><div class="ico">⚽</div></div>
-<div class="cat" onclick="filter('Free Fire')"><div><h3>حسابات Free Fire</h3><span class="muted" id="fc"></span></div><div class="ico">◈</div></div>
-</div></section>
-
-<section id="products"><div class="head"><h2 id="title">مختاراتنا ليك</h2><button class="icon" onclick="filter('all')">الكل</button></div><div class="products" id="grid"></div></section>
+<main class="hero">
+<div class="kicker" id="kicker">GAMING STORE</div>
+<h1 class="title" id="title">FREE <span class="accent">FIRE</span></h1>
+<div class="rule"></div>
+<p class="desc" id="desc">متجر ألعاب بتصميم احترافي لعرض حسابات ومنتجات Free Fire وPES، مع واجهة عصرية وسريعة ومتجاوبة مع الهاتف والكمبيوتر.</p>
+<div class="actions">
+<button class="btn primary" onclick="previewStore()">تصفح المتجر</button>
+<button class="btn" onclick="previewStore()">الحسابات</button>
+</div>
 </main>
 
-<main class="admin" id="admin"><div class="adminGrid"><aside class="side"><h3>ILYS ADMIN</h3><button onclick="dash()">لوحة التحكم</button><button onclick="manage()">المنتجات</button><button onclick="logout()">تسجيل الخروج</button></aside><div id="adminBody"></div></div></main>
+<div class="side left" onclick="switchWorld('pes')">
+<img src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=900&q=85">
+<span>PES</span>
+</div>
+<div class="side right" onclick="switchWorld('pes')">
+<img src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=900&q=85">
+<span>PES</span>
+</div>
 
-<div class="bottom"><button onclick="showStore()"><b>⌂</b>الرئيسية</button><button onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})"><b>▦</b>الأقسام</button><button onclick="cart()"><b>🛒</b>السلة</button><button onclick="orders()"><b>□</b>طلباتي</button></div>
-<div class="modal" id="modal"><div class="box" id="box"></div></div>
-
-<script>
-const K='ilys_products',C='ilys_cart',O='ilys_orders';
-let products=JSON.parse(localStorage.getItem(K)||'null')||[
-{id:1,name:'حساب PES مميز',category:'PES',price:299,image:'',status:'متوفر الآن'},
-{id:2,name:'حساب PES قوي',category:'PES',price:399,image:'',status:'الأكثر طلباً'},
-{id:3,name:'حساب Free Fire مميز',category:'Free Fire',price:199,image:'',status:'متوفر الآن'},
-{id:4,name:'حساب Free Fire Elite',category:'Free Fire',price:279,image:'',status:'جديد'}];
-let cartItems=JSON.parse(localStorage.getItem(C)||'[]'),ordersData=JSON.parse(localStorage.getItem(O)||'[]'),cat='all',imageData='';
-const save=()=>{localStorage.setItem(K,JSON.stringify(products));localStorage.setItem(C,JSON.stringify(cartItems));localStorage.setItem(O,JSON.stringify(ordersData))};
-const money=n=>Number(n).toLocaleString('fr-MA')+' DH';
-const esc=s=>String(s||'').replace(/[&<>"']/g,x=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[x]));
-function filter(x){cat=x;document.getElementById('title').textContent=x==='all'?'مختاراتنا ليك':x==='PES'?'حسابات PES':'حسابات Free Fire';render()}
-function render(){let q=(document.getElementById('q')?.value||'').toLowerCase();let a=products.filter(p=>(cat==='all'||p.category===cat)&&(!q||p.name.toLowerCase().includes(q)||p.category.toLowerCase().includes(q)));document.getElementById('grid').innerHTML=a.length?a.map(p=>`<article class="card"><div class="pic">${p.image?`<img src="${p.image}">`:'⚡'}</div><div class="body"><span class="badge">${esc(p.status)}</span><h3>${esc(p.name)}</h3><span class="muted">${esc(p.category)}</span><div class="price">${money(p.price)}</div><button class="btn" style="width:100%;margin-top:10px" onclick="add(${p.id})">أضف للسلة</button></div></article>`).join(''):'<div class="muted">لا توجد نتائج.</div>';document.getElementById('pc').textContent=products.filter(p=>p.category==='PES').length+' حساب';document.getElementById('fc').textContent=products.filter(p=>p.category==='Free Fire').length+' حساب'}
-function open(x){document.getElementById('box').innerHTML=x;document.getElementById('modal').classList.add('on')}function close(){document.getElementById('modal').classList.remove('on')}
-function add(id){let x=cartItems.find(a=>a.id===id);x?x.qty++:cartItems.push({id,qty:1});save();alert('تمت الإضافة للسلة')}
-function cart(){let a=cartItems.map(x=>({...x,p:products.find(p=>p.id===x.id)})).filter(x=>x.p);let total=a.reduce((s,x)=>s+x.p.price*x.qty,0);open(`<button class="close" onclick="close()">✕</button><h2>السلة</h2>${a.map(x=>`<p>${esc(x.p.name)} × ${x.qty} — <b>${money(x.p.price*x.qty)}</b></p>`).join('')||'<p>السلة فارغة.</p>'}${a.length?`<h3>المجموع: ${money(total)}</h3><button class="btn" onclick="place()">تأكيد الطلب</button>`:''}`)}
-function place(){ordersData.unshift({id:Date.now(),total:cartItems.reduce((s,x)=>s+(products.find(p=>p.id===x.id)?.price||0)*x.qty,0),status:'جديد'});cartItems=[];save();close();alert('تم تسجيل الطلب')}
-function orders(){open(`<button class="close" onclick="close()">✕</button><h2>طلباتي</h2>${ordersData.map(o=>`<p>#${o.id} — ${money(o.total)} — ${o.status}</p>`).join('')||'<p>لا توجد طلبات.</p>'}`)}
-function adminLogin(){open(`<button class="close" onclick="close()">✕</button><h2>دخول الإدارة</h2><input id="code" type="password" inputmode="numeric" placeholder="كود الدخول"><button class="btn" onclick="login()">دخول</button>`)}
-function login(){let c=document.getElementById('code').value;if(c==='12345'||c==='78901'){close();document.getElementById('store').style.display='none';document.getElementById('admin').classList.add('on');dash()}else alert('الكود غير صحيح')}
-function dash(){document.getElementById('adminBody').innerHTML=`<div class="panel"><h2>لوحة التحكم</h2><div class="stats"><div class="stat">المنتجات<strong>${products.length}</strong></div><div class="stat">PES<strong>${products.filter(p=>p.category==='PES').length}</strong></div><div class="stat">Free Fire<strong>${products.filter(p=>p.category==='Free Fire').length}</strong></div><div class="stat">الطلبات<strong>${ordersData.length}</strong></div></div><p class="muted">هذا إصدار GitHub Pages تجريبي؛ البيانات محفوظة في المتصفح.</p></div>`}
-function manage(){document.getElementById('adminBody').innerHTML=`<div class="panel"><div class="head"><h2>المنتجات</h2><button class="btn" onclick="form()">+ إضافة</button></div><hr>${products.map(p=>`<p><b>${esc(p.name)}</b> — ${money(p.price)} <button class="icon" onclick="edit(${p.id})">تعديل</button> <button class="icon" onclick="del(${p.id})">حذف</button></p>`).join('')}</div>`}
-function form(p={}){imageData='';open(`<button class="close" onclick="close()">✕</button><h2>${p.id?'تعديل':'إضافة'} منتج</h2><input id="n" placeholder="اسم المنتج" value="${esc(p.name)}"><select id="c"><option>PES</option><option>Free Fire</option></select><input id="pr" type="number" placeholder="السعر" value="${p.price||''}"><textarea id="d" placeholder="الوصف">${esc(p.description)}</textarea><input id="im" type="file" accept="image/*" onchange="readImage(event)"><div id="prev"></div><button class="btn" onclick="saveProduct(${p.id||0})">حفظ</button>`)}
-function readImage(e){let f=e.target.files[0];if(!f)return;let r=new FileReader();r.onload=()=>{imageData=r.result;document.getElementById('prev').innerHTML='<img style="max-width:150px;border-radius:12px" src="'+imageData+'">'};r.readAsDataURL(f)}
-function saveProduct(id){let old=products.find(p=>p.id===id);let p={id:id||Date.now(),name:document.getElementById('n').value,category:document.getElementById('c').value,price:Number(document.getElementById('pr').value),description:document.getElementById('d').value,image:imageData||old?.image||'',status:old?.status||'متوفر الآن'};if(id)products=products.map(x=>x.id===id?p:x);else products.unshift(p);save();close();render();manage()}
-function edit(id){form(products.find(p=>p.id===id))}function del(id){if(confirm('حذف المنتج؟')){products=products.filter(p=>p.id!==id);save();render();manage()}}
-function logout(){document.getElementById('admin').classList.remove('on');showStore()}function showStore(){document.getElementById('store').style.display='block'}
-render();
-</script>
-
-<!-- ILYS SHOP PREMIUM EXTENSION -->
-<style>
-:root{--b:#1769e8;--bd:#0d55c9;--bg:#f4f7fc;--tx:#13203a;--mut:#748198;--ln:#e4e9f2}
-*{scrollbar-width:thin;scrollbar-color:#cbd6e8 transparent}
-a{text-decoration:none;color:inherit}
-.toast{position:fixed;left:18px;bottom:82px;z-index:9999;background:#14213d;color:#fff;padding:13px 18px;border-radius:14px;box-shadow:0 14px 35px #14213d35;animation:toast .25s ease}
-@keyframes toast{from{transform:translateY(12px);opacity:0}to{transform:none;opacity:1}}
-.skeleton{background:linear-gradient(90deg,#edf1f7,#f8faff,#edf1f7);background-size:200% 100%;animation:sk 1.2s infinite;border-radius:12px}
-@keyframes sk{to{background-position:-200% 0}}
-.drawer{position:fixed;inset:0;background:#07152b70;z-index:100;display:none}
-.drawer.open{display:block}.drawer-card{position:absolute;right:0;top:0;bottom:0;width:min(430px,94vw);background:#fff;padding:20px;overflow:auto}
-.admin-title{display:flex;align-items:center;justify-content:space-between;gap:10px}
-.admin-search{width:100%;padding:12px;border:1px solid var(--ln);border-radius:12px;margin:10px 0}
-.notice{padding:13px 15px;border-radius:14px;background:#edf5ff;color:#1456bd;margin:12px 0}
-.kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:15px 0}
-.kpi>div{padding:17px;border:1px solid var(--ln);background:#fff;border-radius:17px}
-.kpi small{color:var(--mut)}.kpi b{display:block;font-size:26px;color:var(--b);margin-top:4px}
-.tabs{display:flex;gap:8px;overflow:auto;margin:14px 0}.tabs button{white-space:nowrap;border:1px solid var(--ln);background:#fff;padding:9px 14px;border-radius:11px}.tabs button.active{background:#eaf2ff;color:var(--b);border-color:#cfe0ff}
-.chat-list{display:grid;gap:8px}.chat-item{padding:13px;border:1px solid var(--ln);border-radius:14px;background:#fff}.chat-item:hover{background:#f6f9ff}
-.bubble{max-width:82%;padding:10px 13px;border-radius:15px;margin:7px 0;line-height:1.8}.bubble.user{background:#eaf2ff;margin-right:auto}.bubble.admin{background:#1769e8;color:#fff;margin-left:auto}
-@media(max-width:700px){.kpi{grid-template-columns:repeat(2,1fr)}}
-</style>
+<div class="stats">
+<div class="stat"><b>0</b><small>ACCOUNTS</small></div>
+<div class="stat"><b>0</b><small>ORDERS</small></div>
+<div class="stat"><b>0 DH</b><small>REVENUE</small></div>
+</div>
+<div class="owner"><b>ZOUINE SHOP</b><small>Owner: Store Admin • Morocco</small></div>
+</div>
 
 <script>
-/* Premium UX helpers */
-window.ILYS = window.ILYS || {};
-ILYS.version = "2.0";
-ILYS.storeName = "ILYS SHOP";
-ILYS.categories = ["PES","Free Fire"];
-
-function ilysToast(message){
-  const old=document.querySelector(".toast"); if(old) old.remove();
-  const t=document.createElement("div"); t.className="toast"; t.textContent=message;
-  document.body.appendChild(t); setTimeout(()=>t.remove(),2300);
-}
-
-function ilysAdminInfo(){
-  return {
-    admin:{code:"12345",role:"admin"},
-    helper:{code:"78901",role:"helper"}
-  };
-}
-
-/* Product export/import for local demo */
-ILYS.exportData=function(){
-  const data={products,cartItems,ordersData,exportedAt:new Date().toISOString()};
-  const blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"});
-  const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download="ilys-shop-backup.json"; a.click();
-  URL.revokeObjectURL(a.href);
-  ilysToast("تم تصدير نسخة احتياطية");
-};
-
-ILYS.clearDemo=function(){
-  if(!confirm("واش متأكد؟ غادي تحيد بيانات المنتجات والطلبات المحلية."))return;
-  localStorage.removeItem(K);localStorage.removeItem(C);localStorage.removeItem(O);location.reload();
-};
-
-/* Better keyboard behavior */
-document.addEventListener("keydown",e=>{
-  if(e.key==="Escape"){
-    const m=document.querySelector(".modal.on"); if(m) close();
-  }
-});
-
-/* Make modal clickable outside to close */
-const observer=new MutationObserver(()=>{
-  const m=document.getElementById("modal");
-  if(m && !m.dataset.bound){
-    m.dataset.bound="1";
-    m.addEventListener("click",e=>{if(e.target===m)close()});
-  }
-});
-observer.observe(document.body,{childList:true,subtree:true});
+function switchWorld(world,btn){
+document.querySelectorAll('.world').forEach(x=>x.classList.remove('active'));
+document.getElementById(world).classList.add('active');
+document.querySelectorAll('.navlinks button').forEach(x=>x.classList.remove('active'));
+if(btn)btn.classList.add('active');
+if(world==='pes'){
+document.getElementById('kicker').textContent='FOOTBALL STORE';
+document.getElementById('title').innerHTML='<span class="accent">PES</span>';
+document.getElementById('desc').textContent='قسم PES داخل المتجر لعرض الحسابات والعروض والخدمات بتصميم احترافي.';
+document.querySelector('.rule').style.background='var(--blue)';
+document.querySelector('.rule').style.boxShadow='0 0 18px var(--blue)';
+}else{
+document.getElementById('kicker').textContent='GAMING STORE';
+document.getElementById('title').innerHTML='FREE <span class="accent">FIRE</span>';
+document.getElementById('desc').textContent='متجر ألعاب بتصميم احترافي لعرض حسابات ومنتجات Free Fire وPES، مع واجهة عصرية وسريعة ومتجاوبة مع الهاتف والكمبيوتر.';
+document.querySelector('.rule').style.background='var(--gold)';
+document.querySelector('.rule').style.boxShadow='0 0 18px var(--gold)';
+}}
+function previewStore(){alert('Preview: صفحة المتجر والحسابات جاهزة للربط مع Admin Panel وDatabase.')}
 </script>
-
-</body></html>
+</body>
+</html>
